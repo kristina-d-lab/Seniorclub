@@ -2,8 +2,22 @@ document.addEventListener('DOMContentLoaded', function () {
   var burger = document.querySelector('.burger');
   var navLinks = document.querySelector('.nav-links');
   if (burger && navLinks) {
+    var setOpen = function (open) {
+      navLinks.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      document.body.classList.toggle('nav-open', open);
+    };
     burger.addEventListener('click', function () {
-      navLinks.classList.toggle('open');
+      setOpen(!navLinks.classList.contains('open'));
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && navLinks.classList.contains('open')) setOpen(false);
+    });
+    // Close the panel after choosing a real page link on mobile
+    navLinks.querySelectorAll('a[href]').forEach(function (a) {
+      a.addEventListener('click', function () {
+        if (window.innerWidth <= 1080 && !a.parentElement.classList.contains('nav-dropdown')) setOpen(false);
+      });
     });
   }
 
