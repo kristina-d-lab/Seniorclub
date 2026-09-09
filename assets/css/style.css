@@ -87,8 +87,12 @@ section{position:relative;}
 .lang-link img{width:18px; height:13px; border-radius:2px;}
 .lang-link.active,.lang-link:hover{opacity:1;}
 @media (max-width:760px){
-  .topbar-left span.hide-sm{display:none;}
+  .topbar-left .hide-sm{display:none;}
   .topbar .container{gap:10px;}
+}
+@media (max-width:480px){
+  .lang-link span.lang-text{display:none;}
+  .topbar-right{gap:10px;}
 }
 
 /* ===== Nav (floating glass pill) ===== */
@@ -104,6 +108,10 @@ header.site-header .container{
   padding-left:26px; padding-right:14px;
 }
 @media (max-width:1080px){
+  /* backdrop-filter on an ancestor creates a new containing block for
+     position:fixed descendants — that was pulling the mobile nav-links
+     panel out of alignment with the viewport. Drop the blur here (solid
+     pill instead) so the fixed panel positions against the real viewport. */
   header.site-header .container{
     border-radius:26px; padding-left:20px; padding-right:10px;
     backdrop-filter:none; -webkit-backdrop-filter:none; background:#fff;
@@ -144,9 +152,15 @@ nav.main-nav{display:flex; align-items:center; justify-content:space-between; he
     transform:translateX(-100%); transition:transform .25s ease; overflow-y:auto;
   }
   .nav-links.open{transform:translateX(0);}
-  .nav-links a{padding:14px 0; border-bottom:1px solid var(--line);}
-  .dropdown-menu{position:static; transform:none; box-shadow:none; border:none; opacity:1; pointer-events:auto; display:none; margin:0 0 4px 10px; padding:0; min-width:0;}
+  .nav-links > li > a{padding:14px 0; border-bottom:1px solid var(--line);}
+  .dropdown-menu{
+    position:static; transform:none; box-shadow:none; border:none; opacity:1; pointer-events:auto;
+    display:none; background:var(--cream-100); border-radius:12px; padding:8px; margin:8px 0 12px;
+    min-width:0;
+  }
   .nav-dropdown.open .dropdown-menu{display:block;}
+  .dropdown-menu a{border-bottom:none; padding:11px 12px; font-size:0.92rem; border-radius:8px;}
+  .dropdown-menu a:hover{background:rgba(36,28,19,.06);}
   .burger{display:flex;}
   .nav-cta .phone{display:none;}
 }
