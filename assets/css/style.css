@@ -104,7 +104,10 @@ header.site-header .container{
   padding-left:26px; padding-right:14px;
 }
 @media (max-width:1080px){
-  header.site-header .container{border-radius:26px; padding-left:20px; padding-right:10px;}
+  header.site-header .container{
+    border-radius:26px; padding-left:20px; padding-right:10px;
+    backdrop-filter:none; -webkit-backdrop-filter:none; background:#fff;
+  }
 }
 nav.main-nav{display:flex; align-items:center; justify-content:space-between; height:92px; gap:16px;}
 .logo{display:flex; align-items:center; gap:12px; flex-shrink:0;}
