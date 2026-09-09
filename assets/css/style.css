@@ -120,9 +120,9 @@ header.site-header .container{
     backdrop-filter:none; -webkit-backdrop-filter:none; background:#fff;
   }
 }
-nav.main-nav{display:flex; align-items:center; justify-content:space-between; height:92px; gap:16px;}
+nav.main-nav{display:flex; align-items:center; justify-content:space-between; height:104px; gap:16px;}
 .logo{display:flex; align-items:center; gap:12px; flex-shrink:0;}
-.logo img{height:60px; width:auto;}
+.logo img{height:78px; width:auto;}
 .nav-links{display:flex; align-items:center; gap:22px; flex-wrap:wrap;}
 .nav-links a{font-size:0.98rem; font-weight:700; color:var(--ink); opacity:.8; position:relative; padding:8px 0; white-space:nowrap;}
 .nav-links a:hover{opacity:1;}
@@ -150,7 +150,7 @@ nav.main-nav{display:flex; align-items:center; justify-content:space-between; he
 
 @media (max-width:1080px){
   .nav-links{
-    position:fixed; top:150px; left:0; right:0; bottom:0; background:#fff;
+    position:fixed; top:164px; left:0; right:0; bottom:0; background:#fff;
     flex-direction:column; flex-wrap:nowrap; align-items:stretch; gap:0; padding:14px 24px 32px;
     transform:translateX(-100%); transition:transform .25s ease; overflow-y:auto;
     box-shadow:inset 0 -18px 14px -14px rgba(36,28,19,.08);
@@ -175,7 +175,7 @@ nav.main-nav{display:flex; align-items:center; justify-content:space-between; he
   .nav-cta .phone{display:none;}
 }
 @media (max-width:520px){
-  .logo img{height:48px;}
+  .logo img{height:62px;}
   .nav-cta{gap:8px;}
   .nav-cta .btn-primary{display:none;}
   header.site-header{padding:12px 14px 0;}
